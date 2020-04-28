@@ -6,10 +6,19 @@ let fbData; // data we pull from firebase
 let fbDataArray; // firibase data values converted to an array 
 let database; // refernece to our firebase database 
 let folderName = 'inbox'; //name of folder you create in db
+let textInput;
+let sendTextBtn;
 
 
 function setup() {
  noCanvas();
+
+ //textInput = select("#textInput");
+ textInput = document.querySelector("#textInput");
+ sendTextBtn = document.querySelector("#sendTextBtn");
+ 
+
+ sendTextBtn.addEventListener('click', sendText);
 
   let config = {
     apiKey: "AIzaSyDJdRoS4rYe5hMwf8_LNWrEF0NLC3fKsS8",
@@ -34,3 +43,17 @@ function setup() {
 function draw() {
   
 }
+function sendText(){
+
+  if (textInput.value) {
+
+let timestamp = Date.now();
+nodeData = {
+  messageText: textInput.value,
+  timestamp: timestamp,
+}
+
+  createNode(folderName,timestamp,nodeData);
+
+
+}}
