@@ -69,7 +69,7 @@ nodeData = {
 
   textInput.value = ''
 
-  sendDiv.display = 'none';
+  sendDiv.style.display = 'none';
   receiveDiv.display ='block';
 
 
