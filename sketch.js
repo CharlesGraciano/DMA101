@@ -12,6 +12,7 @@ let receiveMessageBtn;
 let receivedMessage;
 let receiveDiv, sendDiv;
 let sendAgainBtn;
+let createNode;
 
 function setup() {
  noCanvas();
@@ -104,7 +105,7 @@ sendAgainBtn.style.display = 'block';
 
     receiveMessage.innerHTML = "";
     receieveMessageBtn.syle.display ='none';
-sendAgainBtn.style.display = 'block';
+    sendAgainBtn.style.display = 'block';
 
 
   }
