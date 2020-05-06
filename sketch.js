@@ -93,7 +93,7 @@ updateNode(folderName,fbDataArray[i].timestamp,{
   received:true
 }); 
 
-sendTextBtn.syle.display ='none';
+receieveMessageBtn.syle.display ='none';
 sendAgainBtn.style.display = 'block';
 
       break;
@@ -102,15 +102,20 @@ sendAgainBtn.style.display = 'block';
 
   } else{ 
 
-    receiveMessage.innerHTML = "you have no new messages";
+    receiveMessage.innerHTML = "";
+    receieveMessageBtn.syle.display ='none';
+sendAgainBtn.style.display = 'block';
+
 
   }
 
 }
 
-
 }
 function sendAgain(){
+receiveMessage.innerHTML = "you have no new messages";
+
+
 receiveDiv.display ='none';
 sendDiv.style.display = 'block';
 
