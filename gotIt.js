@@ -16,7 +16,7 @@ function gotData (data){
 	}
 
 function errData (err){
-console.log ("error! didi not recieve data!");
+console.log ("error! did not recieve data!");
 console.log(err);
 
 

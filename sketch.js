@@ -8,7 +8,9 @@ let database; // refernece to our firebase database
 let folderName = 'inbox'; //name of folder you create in db
 let textInput;
 let sendTextBtn;
-
+let receiveMessageBtn;
+let receivedMessage;
+let receiveDiv, sendDiv;
 
 function setup() {
  noCanvas();
@@ -16,9 +18,16 @@ function setup() {
  //textInput = select("#textInput");
  textInput = document.querySelector("#textInput");
  sendTextBtn = document.querySelector("#sendTextBtn");
+ receiveMessageBtn = document.querySelector("#receiveMessageBtn");
+ receivedMessage = document.querySelector("#receivedMessage");
+ receiveDiv = document.querySelector("#receiveDiv");
+ sendDiv = document.querySelector("#sendDiv");
+
+
  
 
  sendTextBtn.addEventListener('click', sendText);
+ receiveMessageBtn.addEventListener('click', receivedMessage);
 
   let config = {
     apiKey: "AIzaSyDJdRoS4rYe5hMwf8_LNWrEF0NLC3fKsS8",
@@ -55,5 +64,20 @@ nodeData = {
 
   createNode(folderName,timestamp,nodeData);
 
+  createP('Sent Text:'+ nodeData.sendText);
 
+  textInput.value = ''
+
+
+} else {
+  alert (" Message wasn't sent. Please try again. ")
 }}
+
+function receiveMessage(){
+
+
+
+
+}
+
+
