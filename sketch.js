@@ -69,6 +69,9 @@ nodeData = {
 
   textInput.value = ''
 
+  sendDiv.display = 'none';
+  receiveDiv.display ='block';
+
 
 } else {
   alert (" Message wasn't sent. Please try again. ")

@@ -21,10 +21,16 @@
   <body>
     <center>
     <h3> Text Me </h3>
-
+    <div class="" id="sendDiv">
     <textarea  id= "textInput" name="name" rows="8" cols="80" placeholder="Type Here"></textarea>
     <button  id = "sendTextBtn"type ="button" name="button"> Send Text </button>
+    </div>
 
+    <div class="hidden" id="receiveDiv">
+        <button id="receiveMessageBtn" type="button" name="button"> New Message!
+        </button>
+        <p id= "recievedMessage"></p>
+    </div>
 
     <script src="sketch.js"></script>
     <script src="gotIt.js"></script>
