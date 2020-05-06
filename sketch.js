@@ -77,12 +77,23 @@ nodeData = {
 function receiveMessage(){
 
 
-  for (let i = 0; i < fbDataArray.;length; i++){
+  for (let i = 0; i < fbDataArray.length; i++){
 
     if(fbDataArray[i].received === false){
 
-  } else{
-    
+      receiveMessage.innerHTML = fbDataArray[i].messageText
+
+updateNode(folderName,fbDataArray[i].timestamp,{
+  received:true
+});
+      break;
+
+
+
+  } else{ 
+
+    receiveMessage.innerHTML = "you have no new messages";
+
   }
 
 }
