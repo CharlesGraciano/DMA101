@@ -11,6 +11,7 @@ let sendTextBtn;
 let receiveMessageBtn;
 let receivedMessage;
 let receiveDiv, sendDiv;
+let sendAgainBtn;
 
 function setup() {
  noCanvas();
@@ -22,12 +23,14 @@ function setup() {
  receivedMessage = document.querySelector("#receivedMessage");
  receiveDiv = document.querySelector("#receiveDiv");
  sendDiv = document.querySelector("#sendDiv");
+ sendAgainBtn = document.querySelector("#sendAgainBtn");
 
 
  
 
  sendTextBtn.addEventListener('click', sendText);
  receiveMessageBtn.addEventListener('click', receivedMessage);
+ sendAgainBtn.addEventListener('click', sendAgain);
 
   let config = {
     apiKey: "AIzaSyDJdRoS4rYe5hMwf8_LNWrEF0NLC3fKsS8",
@@ -88,7 +91,11 @@ function receiveMessage(){
 
 updateNode(folderName,fbDataArray[i].timestamp,{
   received:true
-});
+}); 
+
+sendTextBtn.syle.display ='none';
+sendAgainBtn.style.display = 'block';
+
       break;
 
 
@@ -103,5 +110,9 @@ updateNode(folderName,fbDataArray[i].timestamp,{
 
 
 }
+function sendAgain(){
+receiveDiv.display ='none';
+sendDiv.style.display = 'block';
 
+}
 
