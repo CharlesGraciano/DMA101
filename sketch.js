@@ -60,6 +60,7 @@ let timestamp = Date.now();
 nodeData = {
   messageText: textInput.value,
   timestamp: timestamp,
+  received: false,
 }
 
   createNode(folderName,timestamp,nodeData);
@@ -76,6 +77,15 @@ nodeData = {
 function receiveMessage(){
 
 
+  for (let i = 0; i < fbDataArray.;length; i++){
+
+    if(fbDataArray[i].received === false){
+
+  } else{
+    
+  }
+
+}
 
 
 }
