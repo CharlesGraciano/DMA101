@@ -1,6 +1,8 @@
 'use strict'
 
-
+let array = [];
+let noiseOffset = 0.0;
+let strokeWidth = 5;
 let nodeData; //object we will puch to firbase 
 let fbData; // data we pull from firebase 
 let fbDataArray; // firibase data values converted to an array 
@@ -15,7 +17,10 @@ let sendAgainBtn;
 let createNode;
 
 function setup() {
- noCanvas();
+ createCanvas(windowWidth, windowHeight);
+  background(200);
+  
+  noFill();
 
  //textInput = select("#textInput");
  textInput = document.querySelector("#textInput");
@@ -54,8 +59,49 @@ function setup() {
 }
 
 function draw() {
-  
+  //if (mouseIsPressed){
+// if (mouseIsPressed==true){
+background(200,0,0,10);
+strokeWeight(strokeWidth);
+
+noiseOffset += 0.07;
+strokeWidth = noise(noiseOffset) * 100;
+
+
+stroke(map(mouseX,0,500,0,300,true));
+line(width-mouseX, height-mouseY, width-pmouseX, height-pmouseY);
+line(mouseX, mouseY, pmouseX, pmouseY);
+//background(0);
+array.push([mouseX,mouseY]);
+
+
 }
+function keyTyped(){
+
+if(key==='s'){
+//save this image
+saveCanvas('fileName', 'png');
+
+} else if (key === 'c'){
+clear();
+}}
+
+//else if (key==='d'){
+//display image
+background(255);
+
+
+beginShape();
+for(let i = 0; i < array.length; i++){
+//line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
+curveVertex(array[i][0], array[i][1]);
+
+}
+endShape();{
+//line(array[0][0], array[0][1],array[2][0],array[2][1]);
+}
+return false;
+
 function sendText(){
 
   if (textInput.value) {
@@ -82,6 +128,8 @@ nodeData = {
 }}
 
 function receiveMessage(){
+
+  shuffleArray (fbDataArray)
 
 
   for (let i = 0; i < fbDataArray.length; i++){
@@ -119,6 +167,15 @@ receiveMessage.innerHTML = "you have no new messages";
 
 receiveDiv.display ='none';
 sendDiv.style.display = 'block';
+
+}
+function shuffleArray (_array){
+
+for(let i=_array.length - 1; i>0; i-- ){
+  let randomIndex = Math.foor(Math.random()*(i+1));
+  [_array[i],_array[randomIndex]]= [_array[randomIndex],_array[i]];
+}
+
 
 }
 
